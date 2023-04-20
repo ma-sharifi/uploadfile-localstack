@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "7a4da438-aca9-4a7b-9f3b-78dc5b8d0462",
+		"name": "localstack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24286132"
+	},
+	"item": [
+		{
+			"name": "Create File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/mahdi/test.txt"
+						},
+						{
+							"key": "mimetype",
+							"value": "application/octet-stream",
+							"type": "text"
+						},
+						{
+							"key": "filename",
+							"value": "test.txt",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/s3/upload?file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s3",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FILE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4566/quarkus.s3.quickstart/test.txt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4566",
+					"path": [
+						"quarkus.s3.quickstart",
+						"test.txt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

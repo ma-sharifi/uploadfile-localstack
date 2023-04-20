@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  localstack:
+    container_name: "localstack-s32"
+    image: localstack/localstack  # required for dev. use localstack-pro for Prod
+    ports:
+      - "4566:4566"    # LocalStack S3
+    #      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=eu-west-1
+      - AWS_DEFAULT_REGION=eu-west-1
+      - HOSTNAME_EXTERNAL=localhost
+      - USE_SSL=false
+      - DATA_DIR=/tmp/localstack/data
+      - DEBUG=1
+    volumes:
+      - "/tmp/localstack:/var/lib/localstack"
+      - '/var/run/docker.sock:/var/run/docker.sock'
